@@ -20,5 +20,7 @@ module.exports = {
         "no-use-before-define": "off",
         "import/newline-after-import": "off",
         "no-unused-expressions": "off",
+        "no-unused-vars": "warn",
+        "no-param-reassign": "warn",
     },
 };

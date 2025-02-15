@@ -1,0 +1,185 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select, dialog, form, label {
+    font: inherit;
+    color: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+ul, li {
+    list-style-type: none;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+/******************/
+
+:root {
+    --border-radius: 0.5rem;
+    /* Dark Base */
+    --color-bg: #0a0e14;
+    --color-text: #e6e6e6;
+}
+
+/*****************/
+body {
+    font-size: 1.3rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* .main { display: none; } */
+
+.container {
+    max-width: 1128px;
+    margin: 0 auto;
+    width: 85%;
+
+}
+
+.row {
+    display: flex;
+}
+
+.temperature-display {
+    justify-content: space-between;
+}
+
+
+/* Search */
+
+
+/* Current Weather */
+
+.current-weather-section {
+    background-color: olive;
+    border-radius: 16px;
+    padding: 2rem;
+
+}
+
+
+/* Weather Data Grid */
+
+.weather-data-section {
+    display: grid;
+    grid-template-areas:
+        "weather-data weather-data"
+        "next-hours next-hours"
+        "next-days next-days"
+        "uv visibility"
+        "dew pressure";
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+}
+
+.weather-data-container {
+    grid-area: weather-data;
+}
+
+/* Next Hours' Weather */
+
+.next-hours-weather {
+    grid-area: next-hours;
+    display: flex;
+    gap: 3em;
+    overflow-x: auto;
+    padding: 0 2em;
+    background-color: olive;
+    border-radius: var(--border-radius);
+}
+
+.next-hours-weather::-webkit-scrollbar {
+    display: none;
+}
+
+.next-hours-weather__hour-weather { 
+    text-align: center;
+    padding: 0.2em 0;
+    min-width: 100px;
+    margin: 0 auto;
+}
+
+.hour-weather__icon {
+    object-fit: cover;
+}
+
+/* Next Days' Weather */
+
+.next-days-weather {
+    grid-area: next-days;
+    padding: 1em;
+    background-color: olive;
+    border-radius: var(--border-radius);
+}
+
+.day-row__day--data {
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+/* Cards */
+
+.card {
+    background-color: olive;
+    border-radius: var(--border-radius);
+    padding: 0.6em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.uv {
+    grid-area: uv;
+}
+
+.visibility {
+    grid-area: visibility;
+}
+
+.dew {
+    grid-area: dew;
+}
+
+.pressure {
+    grid-area: pressure;
+}
