@@ -10,7 +10,6 @@ export default async function getWeatherData(location, group = "metric") {
         }
         return await response.json();
     } catch (e) {
-        console.error("API Error:", e);
         return null;
     }
 }
