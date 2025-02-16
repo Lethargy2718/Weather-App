@@ -22,5 +22,8 @@ module.exports = {
         "no-unused-expressions": "off",
         "no-unused-vars": "warn",
         "no-param-reassign": "warn",
+        "import/first": "off",
+        "prefer-destructuring": "warn",
+        "no-shadow": "warn",
     },
 };

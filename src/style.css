@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -9,17 +11,34 @@ body {
     line-height: 1.5;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
 }
 
-input, button, textarea, select, dialog, form, label {
+input,
+button,
+textarea,
+select,
+dialog,
+form,
+label {
     font: inherit;
     color: inherit;
+    outline: none;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
 }
 
@@ -27,43 +46,63 @@ p {
     text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-wrap: balance;
 }
 
-#root, #__next {
+#root,
+#__next {
     isolation: isolate;
 }
 
-ul, li {
+ul,
+li {
     list-style-type: none;
     list-style: none;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 button {
+    all: unset;
+}
+
+button,
+label[for],
+::-webkit-search-cancel-button,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
     cursor: pointer;
-    border: none;
 }
 
 /******************/
 
 :root {
     --border-radius: 0.5rem;
-    /* Dark Base */
-    --color-bg: #0a0e14;
-    --color-text: #e6e6e6;
+    --color-card: rgba(0, 0, 0, 0.55);
+    --color-text: white;
+    --color-accent: rgba(255, 255, 255, 0.5);
+    --shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.5);
 }
 
 /*****************/
+
 body {
     font-size: 1.3rem;
-    background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 /* .main { display: none; } */
@@ -72,7 +111,6 @@ body {
     max-width: 1128px;
     margin: 0 auto;
     width: 85%;
-
 }
 
 .row {
@@ -83,36 +121,111 @@ body {
     justify-content: space-between;
 }
 
-
 /* Search */
 
+.search-container {
+    margin: 1.5em 0;
+    gap: 1em;
+    align-items: center;
+    position: relative;
+}
+
+.search-container::before {
+    content: "Location doesn't exist!";
+
+    position: absolute;
+    top: 0;
+    transform: scale(0) translate(0, -100%);
+
+    font-size: 1rem;
+    color: red;
+    margin-left: 1em;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.search-container.invalid::before {
+    transform: scale(1) translate(0, -100%);
+}
+
+.location-search {
+    background: var(--color-card);
+    color: white;
+    border: 1px solid var(--color-accent);
+    border-radius: 1em;
+    padding: 0.15em 0.5em 0.15em 1em;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.location-search::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.location-search:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+    font-size: 1rem;
+    background-color: var(--color-card);
+    color: var(--color-text);
+    border: 1px solid var(--color-accent);
+    border-radius: 1em;
+    padding: 0.2em clamp(1em, calc(0.5em + 2vw), 2em);
+    transition: all 0.2s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid transparent;
+    color: black;
+}
+
+.fa-github {
+    font-size: 2rem;
+    transition: filter 0.25s ease-in-out;
+}
+
+.fa-github:hover {
+    filter: drop-shadow(0 0 10px white);
+    cursor: pointer;
+}
 
 /* Current Weather */
 
 .current-weather-section {
-    background-color: olive;
+    box-shadow: var(--shadow);
     border-radius: 16px;
-    padding: 2rem;
-
+    padding: 2rem 1.1rem;
+    background-color: var(--color-card);
+    align-items: center;
 }
 
+.current-weather-section__icon {
+    font-size: 4.5rem;
+    margin-right: 0.2em;
+}
 
 /* Weather Data Grid */
 
 .weather-data-section {
+    --gap: 1em;
+
     display: grid;
     grid-template-areas:
-        "weather-data weather-data"
         "next-hours next-hours"
         "next-days next-days"
         "uv visibility"
-        "dew pressure";
+        "humidity rain";
     grid-template-columns: 1fr 1fr;
-    gap: 2em;
+    gap: var(--gap);
+    margin: var(--gap) 0;
 }
 
-.weather-data-container {
-    grid-area: weather-data;
+.weather-data-section > * {
+    background: var(--color-card);
+    box-shadow: var(--shadow);
 }
 
 /* Next Hours' Weather */
@@ -120,52 +233,82 @@ body {
 .next-hours-weather {
     grid-area: next-hours;
     display: flex;
-    gap: 3em;
+    justify-content: flex-start;
+    gap: 0.7em;
     overflow-x: auto;
-    padding: 0 2em;
-    background-color: olive;
+    background-color: transparent;
+    background-color: var(--color-card);
     border-radius: var(--border-radius);
 }
 
 .next-hours-weather::-webkit-scrollbar {
-    display: none;
+    height: 4.5px;
+}
+.next-hours-weather::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
 }
 
-.next-hours-weather__hour-weather { 
+.next-hours-weather::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.next-hours-weather::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.next-hours-weather__hour-weather {
     text-align: center;
-    padding: 0.2em 0;
-    min-width: 100px;
-    margin: 0 auto;
+    padding: 0.7em 0.5em;
+    min-width: 120px;
+    border-radius: var(--border-radius);
 }
 
 .hour-weather__icon {
-    object-fit: cover;
+    padding: 0.65em 0;
 }
 
 /* Next Days' Weather */
 
 .next-days-weather {
     grid-area: next-days;
-    padding: 1em;
-    background-color: olive;
+    padding: 1em 1.3em;
     border-radius: var(--border-radius);
+    font-size: 1.125rem;
 }
 
 .day-row__day--data {
+    align-items: center;
     justify-content: flex-end;
+    padding: 1em;
     gap: 1em;
 }
 
+.day-row__day--data__icon {
+    width: 1em;
+}
 /* Cards */
 
 .card {
-    background-color: olive;
     border-radius: var(--border-radius);
     padding: 0.6em 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-left: 0.7em;
     gap: 0.4em;
+}
+
+.card__title-container {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3em;
+    font-size: 1.1rem;
+    width: 80%;
+    margin-bottom: 0.7em;
+}
+
+.card__icon {
+    font-size: 0.8em;
+    margin-right: 0 auto;
 }
 
 .uv {
@@ -176,10 +319,10 @@ body {
     grid-area: visibility;
 }
 
-.dew {
-    grid-area: dew;
+.humidity {
+    grid-area: humidity;
 }
 
-.pressure {
-    grid-area: pressure;
+.rain {
+    grid-area: rain;
 }

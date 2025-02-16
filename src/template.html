@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="search-container">
-                <label for="location-search">Search:</label>
-                <input type="text" class="location-search" placeholder="Enter location" />
+            <div class="search-container row">
+                <input type="search" class="location-search" placeholder="Enter location" />
+                <button class="search-button">Search</button>
+                <a href="https://github.com/Lethargy2718" target="_blank"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </header>
@@ -19,8 +28,8 @@
         <section class="current-weather-section section">
             <h1 class="location-name">Location</h1>
             <div class="temperature-display row">
-                <h1>21°C</h1>
-                <img src="#" alt="cloudy weather icon" />
+                <h1 class="current-weather-section__temperature">21°C</h1>
+                <i class="fa-solid current-weather-section__icon"></i>
             </div>
             <p class="weather-description">Partially Cloudy</p>
             <p class="time-container">
@@ -29,51 +38,65 @@
         </section>
 
         <section class="weather-data-section section">
-            <div class="weather-data-container row">
-                <div class="weather-data-item">
-                    <span class="data-title-container">
-                        <i></i>
-                        <h2 class="data-name">Humidity</h2>
-                    </span>
-                    <p class="humidity-value"></p>
-                </div>
-
-                <div class="weather-data-item">
-                    <span class="data-title-container">
-                        <i></i>
-                        <h2 class="data-name">Rain</h2>
-                    </span>
-                    <p class="rain-value"></p>
-                </div>
-
-                <div class="weather-data-item">
-                    <span class="data-title-container">
-                        <i></i>
-                        <h2 class="data-name">Wind</h2>
-                    </span>
-                    <p class="wind-value"></p>
-                </div>
-            </div>
-
             <div class="next-hours-weather row">
                 <div class="next-hours-weather__hour-weather">
                     <h5 class="hour-weather__hour">3 PM</h5>
-                    <img src="#" alt="cloud" class="hour-weather__icon">
+                    <i class="fa-solid hour-weather__icon"></i>
                     <p class="hour-weather__temperature">20</p>
                 </div>
                 <div class="next-hours-weather__hour-weather">
                     <h5 class="hour-weather__hour">3 PM</h5>
-                    <img src="#" alt="cloud" class="hour-weather__icon">
+                    <i class="fa-solid hour-weather__icon"></i>
                     <p class="hour-weather__temperature">20</p>
                 </div>
                 <div class="next-hours-weather__hour-weather">
                     <h5 class="hour-weather__hour">3 PM</h5>
-                    <img src="#" alt="cloud" class="hour-weather__icon">
+                    <i class="fa-solid hour-weather__icon"></i>
                     <p class="hour-weather__temperature">20</p>
                 </div>
                 <div class="next-hours-weather__hour-weather">
                     <h5 class="hour-weather__hour">3 PM</h5>
-                    <img src="#" alt="cloud" class="hour-weather__icon">
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
+                    <p class="hour-weather__temperature">20</p>
+                </div>
+                <div class="next-hours-weather__hour-weather">
+                    <h5 class="hour-weather__hour">3 PM</h5>
+                    <i class="fa-solid hour-weather__icon"></i>
                     <p class="hour-weather__temperature">20</p>
                 </div>
             </div>
@@ -83,67 +106,75 @@
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
                 <tr class="next-days-weather__day-row">
                     <td class="day-row__day--name">Sunday</td>
                     <td class="day-row__day--data row">
                         <p class="day-row__day--data__temperature">13</p>
-                        <img src="#" alt="icon" class="day-row__day--data__icon">
+                        <i class="fa-solid day-row__day--data__icon"></i>
                     </td>
                 </tr>
             </table>
 
             <div class="card uv">
-                <h5 class="card__title">UV</h5>
+                <p class="card__title-container row">
+                    <i class="fa-solid fa-sun card__icon"></i><span class="card__title">UV</span>
+                </p>
                 <p class="card__value">12</p>
             </div>
             <div class="card visibility">
-                <h5 class="card__title">Visibility</h5>
+                <p class="card__title-container row">
+                    <i class="fa-solid fa-eye card__icon"></i><span class="card__title"> Visibility</span>
+                </p>
                 <p class="card__value">12</p>
             </div>
-            <div class="card dew">
-                <h5 class="card__title">Dew</h5>
+            <div class="card humidity">
+                <p class="card__title-container row">
+                    <i class="fa-solid fa-droplet card__icon"></i><span class="card__title"> Humidity</span>
+                </p>
                 <p class="card__value">12</p>
             </div>
-            <div class="card pressure">
-                <h5 class="card__title">Pressure</h5>
+            <div class="card rain">
+                <p class="card__title-container row">
+                    <i class="fa-solid fa-cloud-rain card__icon"></i><span class="card__title"> Rain</span>
+                </p>
                 <p class="card__value">12</p>
             </div>
         </section>

@@ -11,7 +11,7 @@
         "lint": "eslint src",
         "pretty": "prettier --write 'src/**/*.{js,json,md}'",
         "lint-all": "eslint .",
-        "pretty-all": "prettier --write '**/*.{js,json,md}'",
+        "pretty-all": "prettier --write '**/*.{js,json,md,css}'",
         "prepush": "npm run lint-all && npm run pretty-all",
         "push": "git add . && git commit -m",
         "postpush": "git push origin main",
