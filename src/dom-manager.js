@@ -94,7 +94,6 @@ function updateIcon(iconEl, newValue) {
 function updateCurrentWeather(data) {
     const cc = data.currentConditions;
     locationNameEl.textContent = cleanString(data.resolvedAddress);
-    // locationNameEl.textContent = titleCase(data.address);
     currentTemp.textContent = `${Math.round(cc.feelslike)}°C`;
     updateIcon(currentIcon, weatherMap[cc.icon].icon);
     weatherDescription.textContent = cc.conditions;
