@@ -326,3 +326,15 @@ body {
 .rain {
     grid-area: rain;
 }
+
+@media (max-width: 786px) {
+    .container {
+        width: 92%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+}
